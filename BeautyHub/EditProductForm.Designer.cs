@@ -52,6 +52,8 @@ namespace BeautyHub
             this.productNEWBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.productNEWTableAdapter = new BeautyHub.SpaDataSetTableAdapters.ProductNEWTableAdapter();
             this.tableAdapterManager = new BeautyHub.SpaDataSetTableAdapters.TableAdapterManager();
+            this.txtImagePath = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productNEWBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -225,7 +227,7 @@ namespace BeautyHub
             // 
             // btnSaveChanges
             // 
-            this.btnSaveChanges.Location = new System.Drawing.Point(99, 643);
+            this.btnSaveChanges.Location = new System.Drawing.Point(99, 679);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Size = new System.Drawing.Size(593, 69);
             this.btnSaveChanges.TabIndex = 21;
@@ -258,12 +260,32 @@ namespace BeautyHub
             this.tableAdapterManager.StaffNEWTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = BeautyHub.SpaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // txtImagePath
+            // 
+            this.txtImagePath.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImagePath.Location = new System.Drawing.Point(341, 616);
+            this.txtImagePath.Name = "txtImagePath";
+            this.txtImagePath.Size = new System.Drawing.Size(351, 29);
+            this.txtImagePath.TabIndex = 22;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(128, 616);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(199, 30);
+            this.label8.TabIndex = 23;
+            this.label8.Text = "Image Link Address";
+            // 
             // EditProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(800, 772);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.txtImagePath);
             this.Controls.Add(this.btnSaveChanges);
             this.Controls.Add(this.lblProductID);
             this.Controls.Add(this.label6);
@@ -316,5 +338,7 @@ namespace BeautyHub
         private System.Windows.Forms.BindingSource productNEWBindingSource;
         private SpaDataSetTableAdapters.ProductNEWTableAdapter productNEWTableAdapter;
         private SpaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox txtImagePath;
+        private System.Windows.Forms.Label label8;
     }
 }

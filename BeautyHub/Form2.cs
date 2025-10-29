@@ -58,12 +58,12 @@ namespace BeautyHub
         {
             //Icon images
             Image dashboardIcon = Image.FromFile("Resources/DashboardIcon.png");
-            Image appointmentIcon = Image.FromFile("Resources/AppointmentsIcon.png");
-            Image salesIcon = Image.FromFile("Resources/SalesIcon.png");
-            Image staffIcon = Image.FromFile("Resources/StaffIcon.png");
+            Image appointmentIcon = Image.FromFile("Resources/massage.png");
+            Image salesIcon = Image.FromFile("Resources/salary.png");
+            Image staffIcon = Image.FromFile("Resources/grouping.png");
             Image logoutIcon = Image.FromFile("Resources/check-out.png");
-            Image productsIcon = Image.FromFile("Resources/ProductsIcon.png");
-            Image customersIcon = Image.FromFile("Resources/CustomerIcon.png");
+            Image productsIcon = Image.FromFile("Resources/service.png");
+            Image customersIcon = Image.FromFile("Resources/service.png");
             Image reportIcon = Image.FromFile("Resources/report.png");
 
 

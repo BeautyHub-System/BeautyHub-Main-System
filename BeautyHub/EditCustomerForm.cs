@@ -21,6 +21,9 @@ namespace BeautyHub
         public string Notes { get; set; }
         public bool IsActive { get; set; }
 
+        public string Username { get; set; }
+        public string Password { get; set; }
+
         public EditCustomerForm()
         {
 
@@ -43,6 +46,8 @@ namespace BeautyHub
             txtPhone.Text = Phone;
             txtEmail.Text = Email;
             txtNotes.Text = Notes;
+            txtUsername.Text = Username;
+            txtpassword.Text = Password;
 
             this.BackColor = Color.FromArgb(248, 245, 243); // Light beige spa tone
 
@@ -69,11 +74,13 @@ namespace BeautyHub
             string phone = txtPhone.Text.Trim();
             string email = txtEmail.Text.Trim();
             string notes = txtNotes.Text.Trim();
-            
+            string username = txtUsername.Text.Trim();
+            string password = txtpassword.Text.Trim();
+
 
             try
             {
-                customerNEWTableAdapter.UpdateCustomer(firstName, lastName, phone, email, notes, CustomerID);
+                customerNEWTableAdapter.UpdateCustomer(firstName, lastName, phone, email, notes,username,password, CustomerID);
                 MessageBox.Show("Customer updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
@@ -115,6 +122,11 @@ namespace BeautyHub
         {
             if (!char.IsControl(e.KeyChar) && (!char.IsDigit(e.KeyChar) || ((sender as System.Windows.Forms.TextBox).TextLength >= 10)))
                 e.Handled = true;
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

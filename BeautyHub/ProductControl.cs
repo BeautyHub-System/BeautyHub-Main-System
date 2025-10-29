@@ -96,6 +96,7 @@ namespace BeautyHub
             string category = selectedRow.Cells["categoryDataGridViewTextBoxColumn"].Value.ToString();
             decimal price = Convert.ToDecimal(selectedRow.Cells["priceDataGridViewTextBoxColumn"].Value);
             bool isPromo = Convert.ToBoolean(selectedRow.Cells["promotionDataGridViewCheckBoxColumn"].Value);
+            string ImagePath = selectedRow.Cells["Image"].Value?.ToString() ?? "";
 
             // Nullable promotion price
             object promoVal = selectedRow.Cells["promotionPriceDataGridViewTextBoxColumn"].Value;
@@ -103,9 +104,10 @@ namespace BeautyHub
 
             int stock = Convert.ToInt32(selectedRow.Cells["quantityInStockDataGridViewTextBoxColumn"].Value);
             bool isActive = Convert.ToBoolean(selectedRow.Cells["isActiveDataGridViewCheckBoxColumn"].Value);
+            string imagePath = selectedRow.Cells["Image"].Value?.ToString() ?? "";
 
             // Open the edit form with values
-            EditProductForm editForm = new EditProductForm(productId, name, description, category, price, isPromo, promoPrice, stock, isActive);
+            EditProductForm editForm = new EditProductForm(productId, name, description, category, price, isPromo, promoPrice, stock, isActive, imagePath);
             //editForm.ShowDialog();
 
             // Refresh the data after editing

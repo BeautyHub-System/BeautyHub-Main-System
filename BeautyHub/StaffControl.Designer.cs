@@ -100,7 +100,7 @@ namespace BeautyHub
             this.btnArchive.Name = "btnArchive";
             this.btnArchive.Size = new System.Drawing.Size(300, 70);
             this.btnArchive.TabIndex = 3;
-            this.btnArchive.Text = "ARCHIVE STAFF ";
+            this.btnArchive.Text = "DELETE STAFF ";
             this.btnArchive.UseVisualStyleBackColor = false;
             this.btnArchive.Click += new System.EventHandler(this.btnArchive_Click);
             // 

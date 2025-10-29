@@ -48,6 +48,10 @@ namespace BeautyHub
             this.customerNEWBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.customerNEWTableAdapter = new BeautyHub.SpaDataSetTableAdapters.CustomerNEWTableAdapter();
             this.tableAdapterManager = new BeautyHub.SpaDataSetTableAdapters.TableAdapterManager();
+            this.txtpassword = new System.Windows.Forms.TextBox();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.customerNEWBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -160,7 +164,7 @@ namespace BeautyHub
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSave.Location = new System.Drawing.Point(114, 526);
+            this.btnSave.Location = new System.Drawing.Point(112, 637);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(572, 54);
             this.btnSave.TabIndex = 15;
@@ -212,12 +216,53 @@ namespace BeautyHub
             this.tableAdapterManager.StaffNEWTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = BeautyHub.SpaDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // txtpassword
+            // 
+            this.txtpassword.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtpassword.Location = new System.Drawing.Point(320, 587);
+            this.txtpassword.Name = "txtpassword";
+            this.txtpassword.Size = new System.Drawing.Size(301, 25);
+            this.txtpassword.TabIndex = 18;
+            // 
+            // txtUsername
+            // 
+            this.txtUsername.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(320, 531);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(301, 25);
+            this.txtUsername.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(147, 580);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(153, 30);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Web Password";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(139, 526);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(168, 30);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Web UserName:";
+            // 
             // EditCustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(798, 716);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.txtUsername);
+            this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblCustomerID);
             this.Controls.Add(this.btnSave);
@@ -262,5 +307,9 @@ namespace BeautyHub
         private System.Windows.Forms.BindingSource customerNEWBindingSource;
         private SpaDataSetTableAdapters.CustomerNEWTableAdapter customerNEWTableAdapter;
         private SpaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox txtpassword;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label9;
     }
 }

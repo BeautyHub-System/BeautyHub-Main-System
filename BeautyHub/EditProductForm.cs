@@ -14,7 +14,7 @@ namespace BeautyHub
     {
         private int productId;
 
-        public EditProductForm(int productId, string name, string description, string category, decimal price, bool isPromo, decimal? promoPrice, int stock, bool isActive)
+        public EditProductForm(int productId, string name, string description, string category, decimal price, bool isPromo, decimal? promoPrice, int stock, bool isActive, string ImagePath)
         {
             InitializeComponent();
 
@@ -36,6 +36,7 @@ namespace BeautyHub
             txtPromotionPrice.Enabled = isPromo;
             txtPromotionPrice.Text = promoPrice?.ToString("0.00") ?? "";
             IsActive.Checked = isActive;
+            txtImagePath.Text = ImagePath;
         }
 
         private void EditProductForm_Load(object sender, EventArgs e)
@@ -108,6 +109,7 @@ namespace BeautyHub
             bool isActive = IsActive.Checked;
             decimal price = Convert.ToDecimal( txtPrice.Text.Trim());
             int stock = Convert.ToInt32(txtStock.Text.Trim());
+            string imagePath = txtImagePath.Text.Trim();
 
             // Confirmation
             var result = MessageBox.Show("Are you sure you want to update this product?", "Confirm Update", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -117,7 +119,7 @@ namespace BeautyHub
             try
             {
                 // Your table adapter method may differ - this assumes you’ve added an UpdateProduct query
-                productNEWTableAdapter.UpdateProduct(name, desc, category, price, isPromo, promoPrice, stock, isActive, productId);
+                productNEWTableAdapter.UpdateProduct(name, desc, category, price, isPromo, promoPrice, stock, isActive,imagePath, productId);
                 MessageBox.Show("Product updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

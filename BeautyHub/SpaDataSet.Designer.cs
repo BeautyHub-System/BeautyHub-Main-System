@@ -6056,14 +6056,16 @@ SELECT CustomerID, FirstName, LastName, Phone, Email, Notes, IsActive, Username,
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
             this._commandCollection[3].CommandText = "UPDATE       CustomerNEW\r\nSET                FirstName = @FirstName, LastName = @" +
-                "LastName, Phone = @Phone, Email = @Email, Notes = @Notes\r\nWHERE        (Customer" +
-                "ID = @CustomerID)";
+                "LastName, Phone = @Phone, Email = @Email, Notes = @Notes, Username = @Username, " +
+                "Password = @Password\r\nWHERE        (CustomerID = @CustomerID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@FirstName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "FirstName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@LastName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "LastName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Phone", global::System.Data.SqlDbType.VarChar, 20, global::System.Data.ParameterDirection.Input, 0, 0, "Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Email", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "Email", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Notes", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Notes", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Username", global::System.Data.SqlDbType.NVarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Username", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Password", global::System.Data.SqlDbType.NVarChar, 255, global::System.Data.ParameterDirection.Input, 0, 0, "Password", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CustomerID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "CustomerID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -6505,7 +6507,7 @@ SELECT CustomerID, FirstName, LastName, Phone, Email, Notes, IsActive, Username,
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateCustomer(string FirstName, string LastName, string Phone, string Email, string Notes, int CustomerID) {
+        public virtual int UpdateCustomer(string FirstName, string LastName, string Phone, string Email, string Notes, string Username, string Password, int CustomerID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((FirstName == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -6537,7 +6539,19 @@ SELECT CustomerID, FirstName, LastName, Phone, Email, Notes, IsActive, Username,
             else {
                 command.Parameters[4].Value = ((string)(Notes));
             }
-            command.Parameters[5].Value = ((int)(CustomerID));
+            if ((Username == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((string)(Username));
+            }
+            if ((Password == null)) {
+                command.Parameters[6].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[6].Value = ((string)(Password));
+            }
+            command.Parameters[7].Value = ((int)(CustomerID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -6788,17 +6802,10 @@ SELECT ProductID, ProductName, Description, Category, Price, Promotion, Promotio
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"UPDATE ProductNEW
-SET ProductName = @ProductName,
-Description = @Description,
-    Category = @Category,
-    Price = @Price,
- Promotion = @Promotion,
-    PromotionPrice = @PromotionPrice,
-QuantityInStock = @QuantityInStock,
-    IsActive = @IsActive
-WHERE ProductID = @ProductID
-";
+            this._commandCollection[3].CommandText = @"UPDATE       ProductNEW
+SET                ProductName = @ProductName, Description = @Description, Category = @Category, Price = @Price, Promotion = @Promotion, PromotionPrice = @PromotionPrice, QuantityInStock = @QuantityInStock, IsActive = @IsActive, 
+                         Image = @Image
+WHERE        (ProductID = @ProductID)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductName", global::System.Data.SqlDbType.VarChar, 100, global::System.Data.ParameterDirection.Input, 0, 0, "ProductName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Description", global::System.Data.SqlDbType.Text, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "Description", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -6808,6 +6815,7 @@ WHERE ProductID = @ProductID
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PromotionPrice", global::System.Data.SqlDbType.Decimal, 9, global::System.Data.ParameterDirection.Input, 10, 2, "PromotionPrice", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@QuantityInStock", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "QuantityInStock", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsActive", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 0, 0, "IsActive", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Image", global::System.Data.SqlDbType.NVarChar, 500, global::System.Data.ParameterDirection.Input, 0, 0, "Image", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ProductID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ProductID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
@@ -7281,7 +7289,7 @@ WHERE ProductID = @ProductID
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateProduct(string ProductName, string Description, string Category, global::System.Nullable<decimal> Price, global::System.Nullable<bool> Promotion, global::System.Nullable<decimal> PromotionPrice, global::System.Nullable<int> QuantityInStock, global::System.Nullable<bool> IsActive, int ProductID) {
+        public virtual int UpdateProduct(string ProductName, string Description, string Category, global::System.Nullable<decimal> Price, global::System.Nullable<bool> Promotion, global::System.Nullable<decimal> PromotionPrice, global::System.Nullable<int> QuantityInStock, global::System.Nullable<bool> IsActive, string Image, int ProductID) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[3];
             if ((ProductName == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
@@ -7331,7 +7339,13 @@ WHERE ProductID = @ProductID
             else {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
-            command.Parameters[8].Value = ((int)(ProductID));
+            if ((Image == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[8].Value = ((string)(Image));
+            }
+            command.Parameters[9].Value = ((int)(ProductID));
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {

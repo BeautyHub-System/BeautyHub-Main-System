@@ -25,12 +25,12 @@ namespace BeautyHub
             dgvCustomers.AutoGenerateColumns = true;
             customerNEWTableAdapter.Fill(spaDataSet.CustomerNEW);
             // dgvCustomers.CellFormatting += dgvCustomers_CellFormatting;
-            /*
+            
             foreach (DataGridViewColumn col in dgvCustomers.Columns)
             {
                 Console.WriteLine("Column Name: " + col.Name);
             }
-            */
+            
             btnAddCustomer.BackColor = Color.FromArgb(42, 157, 143); // #2A9D8F
 
 
@@ -98,7 +98,9 @@ namespace BeautyHub
                 LastName = row.Cells["lastNameDataGridViewTextBoxColumn"].Value.ToString(),
                 Phone = row.Cells["phoneDataGridViewTextBoxColumn"].Value.ToString(),
                 Email = row.Cells["emailDataGridViewTextBoxColumn"].Value.ToString(),
-                Notes = row.Cells["notesDataGridViewTextBoxColumn"].Value.ToString()
+                Notes = row.Cells["notesDataGridViewTextBoxColumn"].Value.ToString(),
+                Username = row.Cells["Username"].Value.ToString(),
+                Password = row.Cells["Password"].Value.ToString()
             };
 
             editForm.ShowDialog();
