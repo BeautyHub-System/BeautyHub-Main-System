@@ -192,6 +192,24 @@ namespace BeautyHub
                 return;
             }
 
+
+
+            // ✅ NEW: Stock check
+            if (quantity > productRow.QuantityInStock)
+            {
+                MessageBox.Show(
+                    $"Not enough stock.\nAvailable: {productRow.QuantityInStock}\nRequested: {quantity}",
+                    "Stock Too Low",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+                return;
+            }
+
+
+
+
+
             string productName = productRow.ProductName;
             decimal unitPrice = productRow.Promotion ? productRow.PromotionPrice : productRow.Price;
             decimal subtotal = unitPrice * quantity;
@@ -322,8 +340,13 @@ namespace BeautyHub
                 decimal unitPrice = (decimal)row["UnitPrice"];
                 decimal subtotal = (decimal)row["Subtotal"];
 
+                // 1. Record the sale item
                 saleItemNEWTableAdapter.Insert(saleId, productId, quantity, unitPrice, subtotal);
+
+                // 2. Decrease stock in DB directly
+                productNEWTableAdapter.UpdateStockAfterSale(quantity, productId);
             }
+
 
             // 6) Update UI
             txtChange.Text = $"R {changeGiven:0.00}";
