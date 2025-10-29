@@ -162,9 +162,9 @@ namespace BeautyHub
             this.label4.ForeColor = System.Drawing.Color.Red;
             this.label4.Location = new System.Drawing.Point(991, 405);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(168, 25);
+            this.label4.Size = new System.Drawing.Size(158, 25);
             this.label4.TabIndex = 9;
-            this.label4.Text = "RED = ON LEEAVE";
+            this.label4.Text = "RED = ON LEAVE";
             // 
             // spaDataSet
             // 

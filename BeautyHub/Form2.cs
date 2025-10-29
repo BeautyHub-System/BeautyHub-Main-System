@@ -82,7 +82,7 @@ namespace BeautyHub
 
                 // The rest of your buttons
 
-                Button btnAppointments = CreateSidebarButton("Appointments", 170, appointmentIcon);
+                Button btnAppointments = CreateSidebarButton("Appointments", 220, appointmentIcon);
                 btnAppointments.Click += (s, evt) => LoadPage(new AppointmentsControl());
                 sidebar.Controls.Add(btnAppointments);
 
@@ -91,7 +91,7 @@ namespace BeautyHub
 
                 //sidebar.Controls.Add(CreateSidebarButton("Staff", 320, staffIcon));
 
-                Button btnStaff = CreateSidebarButton("Staff", 320, staffIcon);
+                Button btnStaff = CreateSidebarButton("Staff", 170, staffIcon);
                 btnStaff.Click += (s, evt) => LoadPage(new StaffControl());
                 sidebar.Controls.Add(btnStaff);
 
@@ -113,7 +113,7 @@ namespace BeautyHub
 
 
                 //sidebar.Controls.Add(CreateSidebarButton("Sales", 170, salesIcon));
-                Button btnSales = CreateSidebarButton("Sales", 220, salesIcon);
+                Button btnSales = CreateSidebarButton("Sales", 320, salesIcon);
                 btnSales.Click += (s, evt) => LoadPage(new SalesControl());
                 sidebar.Controls.Add(btnSales);
 

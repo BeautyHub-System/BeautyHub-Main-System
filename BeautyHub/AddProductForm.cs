@@ -125,12 +125,13 @@ namespace BeautyHub
             string desc = txtDescription.Text.Trim();
             string category = cbCategory.SelectedItem?.ToString() ?? "Uncategorized";
             bool isActive = IsActive.Checked;
+            string imagePath = txtImageURL.Text.Trim();
 
             // Save to DB
             try
             {
                 // Make sure your Insert accepts nullable decimal for promoPrice
-                productNEWTableAdapter.Insert(name, desc, category, price, isPromo, promoPrice, stock, isActive);
+                productNEWTableAdapter.Insert(name, desc, category, price, isPromo, promoPrice, stock, isActive, imagePath);
 
                 MessageBox.Show("Product added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();

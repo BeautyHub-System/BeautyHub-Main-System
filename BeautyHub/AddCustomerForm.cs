@@ -125,6 +125,8 @@ namespace BeautyHub
             string email = txtEmail.Text.Trim();
             string gender = cbGender.SelectedItem?.ToString() ?? "Unspecified";
             bool isActive = true;
+            string username = txtUserName.Text.Trim();
+            string password = txtpassword.Text.Trim();
 
             string notes = txtNotes.Text.Trim();
             if (string.IsNullOrWhiteSpace(notes))
@@ -135,7 +137,7 @@ namespace BeautyHub
             
             try
             {
-                customerNEWTableAdapter.Insert(firstName, lastName, phone, email, notes, isActive);
+                customerNEWTableAdapter.Insert(firstName, lastName, phone, email, notes, isActive,username,password);
                 MessageBox.Show("Customer added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }

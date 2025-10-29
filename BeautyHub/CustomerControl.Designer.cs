@@ -105,6 +105,7 @@ namespace BeautyHub
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.Size = new System.Drawing.Size(1109, 347);
             this.dgvCustomers.TabIndex = 3;
+//            this.dgvCustomers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCustomers_CellContentClick);
             // 
             // customerIDDataGridViewTextBoxColumn
             // 

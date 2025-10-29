@@ -50,6 +50,8 @@ namespace BeautyHub
             this.productNEWTableAdapter = new BeautyHub.SpaDataSetTableAdapters.ProductNEWTableAdapter();
             this.tableAdapterManager = new BeautyHub.SpaDataSetTableAdapters.TableAdapterManager();
             this.txtStock = new System.Windows.Forms.TextBox();
+            this.txtImageURL = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spaDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productNEWBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -195,7 +197,7 @@ namespace BeautyHub
             // btnSaveProduct
             // 
             this.btnSaveProduct.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveProduct.Location = new System.Drawing.Point(88, 528);
+            this.btnSaveProduct.Location = new System.Drawing.Point(88, 592);
             this.btnSaveProduct.Name = "btnSaveProduct";
             this.btnSaveProduct.Size = new System.Drawing.Size(639, 87);
             this.btnSaveProduct.TabIndex = 16;
@@ -237,12 +239,32 @@ namespace BeautyHub
             this.txtStock.TabIndex = 17;
             this.txtStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtStock_KeyPress);
             // 
+            // txtImageURL
+            // 
+            this.txtImageURL.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImageURL.Location = new System.Drawing.Point(350, 541);
+            this.txtImageURL.Name = "txtImageURL";
+            this.txtImageURL.Size = new System.Drawing.Size(300, 29);
+            this.txtImageURL.TabIndex = 18;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(127, 537);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(198, 30);
+            this.label7.TabIndex = 19;
+            this.label7.Text = "Image link address:";
+            // 
             // AddProductForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(798, 716);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.txtImageURL);
             this.Controls.Add(this.txtStock);
             this.Controls.Add(this.btnSaveProduct);
             this.Controls.Add(this.IsActive);
@@ -292,5 +314,7 @@ namespace BeautyHub
         private SpaDataSetTableAdapters.ProductNEWTableAdapter productNEWTableAdapter;
         private SpaDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox txtStock;
+        private System.Windows.Forms.TextBox txtImageURL;
+        private System.Windows.Forms.Label label7;
     }
 }
