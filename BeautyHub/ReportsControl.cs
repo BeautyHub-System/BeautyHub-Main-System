@@ -20,8 +20,13 @@ namespace BeautyHub
         private async void ReportsControl_Load(object sender, EventArgs e)
         {
             await webView21.EnsureCoreWebView2Async(null);
-            string powerBilink = "https://app.powerbi.com/view?r=eyJrIjoiNmM1MzgxOTEtMWFjNC00Zjc4LWExNjUtMmM0YjI1MWJiMWZiIiwidCI6IjIyNjgyN2Q2LWE5ZDAtNDcwZC04YzE1LWIxNDZiMDE5MmQ1MSIsImMiOjh9";
+            string powerBilink = "https://app.powerbi.com/view?r=eyJrIjoiNDFkYjJmZjQtOWVlNC00NTE0LThjMTYtODQyMWIwNmQyZDExIiwidCI6IjIyNjgyN2Q2LWE5ZDAtNDcwZC04YzE1LWIxNDZiMDE5MmQ1MSIsImMiOjh9";
             webView21.Source = new Uri(powerBilink);
+        }
+
+        private void webView21_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
