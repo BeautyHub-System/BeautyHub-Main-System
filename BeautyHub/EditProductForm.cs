@@ -177,13 +177,13 @@ namespace BeautyHub
         private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
         {
             
-            if (!char.IsControl(e.KeyChar)||!char.IsLetter(e.KeyChar))
-            {
-                e.Handled = true;
-            }
+            //if (char.IsControl(e.KeyChar)||char.IsLetter(e.KeyChar))
+            //{
+            //    e.Handled = true;
+            //}
             
 
-          
+
         }
 
         private void txtStock_TextChanged(object sender, EventArgs e)

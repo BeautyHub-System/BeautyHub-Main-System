@@ -42,7 +42,7 @@ namespace BeautyHub
             cbService.DisplayMember = "ServiceName";
             cbService.ValueMember = "ServiceID";
 
-            cbStatus.Items.AddRange(new string[] { "Pending", "Confirmed", "Cancelled" });
+            cbStatus.Items.AddRange(new string[] { "Scheduled", "Confirmed", "Cancelled" });
             cbStatus.SelectedIndex = 0;
 
             this.BackColor = Color.FromArgb(248, 245, 243); // Light beige spa tone
@@ -242,6 +242,11 @@ namespace BeautyHub
             {
                 e.Handled = true;
             }
+
+        }
+
+        private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

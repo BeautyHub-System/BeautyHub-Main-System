@@ -167,10 +167,35 @@ namespace BeautyHub
                 // Step 7: Check staff conflict
                 TimeSpan newStart = appointmentTime;
                 TimeSpan newEnd = newStart.Add(TimeSpan.FromMinutes((double)serviceDuration));
+                //var staffAppointments = appointmentNEWTableAdapter.GetDataByStaffAndDate(staffId, selectedDate.ToString());
+
+                //foreach (var row in staffAppointments)
+                //{
+                //    TimeSpan existingStart = (TimeSpan)row["Time"];
+                //    int existingServiceID = (int)row["ServiceID"];
+                //    int existingDuration = (int)serviceNEWTableAdapter.GetDurationByServiceID(existingServiceID);
+                //    TimeSpan existingEnd = existingStart.Add(TimeSpan.FromMinutes(existingDuration));
+
+                //    if (newStart < existingEnd && existingStart < newEnd)
+                //    {
+                //        string serviceName = serviceNEWTableAdapter.GetServiceNameByID(existingServiceID)?.ToString() ?? "Unknown Service";
+                //        string conflictDetails = $"This staff member is already booked during the selected time slot:\n\n" +
+                //                                 $"• {serviceName} from {existingStart:hh\\:mm} to {existingEnd:hh\\:mm}";
+
+                //        MessageBox.Show(conflictDetails, "Double Booking", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //        return;
+                //    }
+                //}
                 var staffAppointments = appointmentNEWTableAdapter.GetDataByStaffAndDate(staffId, selectedDate.ToString());
 
-                foreach (var row in staffAppointments)
+                foreach (DataRow row in staffAppointments.Rows)
                 {
+                    int existingAppointmentId = (int)row["AppointmentID"];
+
+                    // 🔑 Skip the appointment we're currently editing
+                    if (existingAppointmentId == appointmentId)
+                        continue;
+
                     TimeSpan existingStart = (TimeSpan)row["Time"];
                     int existingServiceID = (int)row["ServiceID"];
                     int existingDuration = (int)serviceNEWTableAdapter.GetDurationByServiceID(existingServiceID);
@@ -187,13 +212,44 @@ namespace BeautyHub
                     }
                 }
 
+
                 // Step 8: Check customer conflict
+                //var customerAppointments = appointmentNEWTableAdapter.GetDataByCustomerAndDate(customerId, selectedDate.ToString());
+                //string customerConflictDetails = $"Conflicting appointment(s) for Customer ID {customerId}:\n\n";
+                //bool customerConflictFound = false;
+
+                //foreach (var row in customerAppointments)
+                //{
+                //    TimeSpan existingStart = (TimeSpan)row["Time"];
+                //    int existingServiceID = (int)row["ServiceID"];
+                //    int existingDuration = (int)serviceNEWTableAdapter.GetDurationByServiceID(existingServiceID);
+                //    TimeSpan existingEnd = existingStart.Add(TimeSpan.FromMinutes(existingDuration));
+
+                //    if (newStart < existingEnd && existingStart < newEnd)
+                //    {
+                //        string serviceName = serviceNEWTableAdapter.GetServiceNameByID(existingServiceID)?.ToString() ?? "Unknown Service";
+                //        customerConflictDetails += $"• {serviceName} from {existingStart:hh\\:mm} to {existingEnd:hh\\:mm}\n";
+                //        customerConflictFound = true;
+                //    }
+                //}
+
+                //if (customerConflictFound)
+                //{
+                //    MessageBox.Show(customerConflictDetails, "Customer Already Booked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 var customerAppointments = appointmentNEWTableAdapter.GetDataByCustomerAndDate(customerId, selectedDate.ToString());
                 string customerConflictDetails = $"Conflicting appointment(s) for Customer ID {customerId}:\n\n";
                 bool customerConflictFound = false;
 
-                foreach (var row in customerAppointments)
+                foreach (DataRow row in customerAppointments.Rows)
                 {
+                    int existingAppointmentId = (int)row["AppointmentID"];
+
+                    // 🔑 Skip current appointment
+                    if (existingAppointmentId == appointmentId)
+                        continue;
+
                     TimeSpan existingStart = (TimeSpan)row["Time"];
                     int existingServiceID = (int)row["ServiceID"];
                     int existingDuration = (int)serviceNEWTableAdapter.GetDurationByServiceID(existingServiceID);
@@ -212,6 +268,10 @@ namespace BeautyHub
                     MessageBox.Show(customerConflictDetails, "Customer Already Booked", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
+
+
+
+
 
                 // Step 9: Confirm update
                 var confirm = MessageBox.Show(

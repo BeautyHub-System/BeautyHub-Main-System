@@ -84,7 +84,7 @@ namespace BeautyHub
             this.cbCustomer.Location = new System.Drawing.Point(328, 95);
             this.cbCustomer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbCustomer.Name = "cbCustomer";
-            this.cbCustomer.Size = new System.Drawing.Size(261, 36);
+            this.cbCustomer.Size = new System.Drawing.Size(261, 29);
             this.cbCustomer.TabIndex = 0;
             // 
             // cbStaff
@@ -93,7 +93,7 @@ namespace BeautyHub
             this.cbStaff.Location = new System.Drawing.Point(328, 208);
             this.cbStaff.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbStaff.Name = "cbStaff";
-            this.cbStaff.Size = new System.Drawing.Size(261, 36);
+            this.cbStaff.Size = new System.Drawing.Size(261, 29);
             this.cbStaff.TabIndex = 1;
             // 
             // cbService
@@ -102,7 +102,7 @@ namespace BeautyHub
             this.cbService.Location = new System.Drawing.Point(328, 153);
             this.cbService.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbService.Name = "cbService";
-            this.cbService.Size = new System.Drawing.Size(261, 36);
+            this.cbService.Size = new System.Drawing.Size(261, 29);
             this.cbService.TabIndex = 2;
             // 
             // dtpDate
@@ -111,7 +111,7 @@ namespace BeautyHub
             this.dtpDate.Location = new System.Drawing.Point(328, 270);
             this.dtpDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpDate.Name = "dtpDate";
-            this.dtpDate.Size = new System.Drawing.Size(261, 34);
+            this.dtpDate.Size = new System.Drawing.Size(261, 29);
             this.dtpDate.TabIndex = 3;
             // 
             // label1
@@ -121,7 +121,7 @@ namespace BeautyHub
             this.label1.Location = new System.Drawing.Point(112, 9);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(590, 60);
+            this.label1.Size = new System.Drawing.Size(477, 47);
             this.label1.TabIndex = 4;
             this.label1.Text = "ADD APPOINTMENT FORM";
             // 
@@ -132,7 +132,7 @@ namespace BeautyHub
             this.label2.Location = new System.Drawing.Point(150, 87);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 46);
+            this.label2.Size = new System.Drawing.Size(140, 37);
             this.label2.TabIndex = 5;
             this.label2.Text = "Customer ";
             // 
@@ -143,7 +143,7 @@ namespace BeautyHub
             this.label3.Location = new System.Drawing.Point(150, 198);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 46);
+            this.label3.Size = new System.Drawing.Size(80, 37);
             this.label3.TabIndex = 6;
             this.label3.Text = "Staff ";
             // 
@@ -154,7 +154,7 @@ namespace BeautyHub
             this.label4.Location = new System.Drawing.Point(150, 270);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(102, 46);
+            this.label4.Size = new System.Drawing.Size(82, 37);
             this.label4.TabIndex = 7;
             this.label4.Text = "Date ";
             // 
@@ -165,7 +165,7 @@ namespace BeautyHub
             this.label5.Location = new System.Drawing.Point(150, 334);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(105, 46);
+            this.label5.Size = new System.Drawing.Size(85, 37);
             this.label5.TabIndex = 8;
             this.label5.Text = "Time ";
             // 
@@ -176,7 +176,7 @@ namespace BeautyHub
             this.label6.Location = new System.Drawing.Point(150, 399);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(124, 46);
+            this.label6.Size = new System.Drawing.Size(98, 37);
             this.label6.TabIndex = 9;
             this.label6.Text = "Status ";
             // 
@@ -185,7 +185,7 @@ namespace BeautyHub
             this.txtTime.Location = new System.Drawing.Point(328, 334);
             this.txtTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(263, 34);
+            this.txtTime.Size = new System.Drawing.Size(263, 29);
             this.txtTime.TabIndex = 10;
             this.txtTime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTime_KeyPress);
             // 
@@ -195,8 +195,9 @@ namespace BeautyHub
             this.cbStatus.Location = new System.Drawing.Point(328, 399);
             this.cbStatus.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cbStatus.Name = "cbStatus";
-            this.cbStatus.Size = new System.Drawing.Size(261, 36);
+            this.cbStatus.Size = new System.Drawing.Size(261, 29);
             this.cbStatus.TabIndex = 12;
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // Comment
             // 
@@ -205,7 +206,7 @@ namespace BeautyHub
             this.Comment.Location = new System.Drawing.Point(150, 464);
             this.Comment.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Comment.Name = "Comment";
-            this.Comment.Size = new System.Drawing.Size(179, 46);
+            this.Comment.Size = new System.Drawing.Size(143, 37);
             this.Comment.TabIndex = 13;
             this.Comment.Text = "Comment ";
             // 
@@ -225,7 +226,7 @@ namespace BeautyHub
             this.label7.Location = new System.Drawing.Point(150, 143);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(136, 46);
+            this.label7.Size = new System.Drawing.Size(110, 37);
             this.label7.TabIndex = 15;
             this.label7.Text = "Service ";
             // 
@@ -278,7 +279,7 @@ namespace BeautyHub
             this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Add new";
             // 
             // staffNEWBindingSource
@@ -294,7 +295,7 @@ namespace BeautyHub
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(45, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
             this.bindingNavigatorCountItem.Text = "of {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
             // 
@@ -303,7 +304,7 @@ namespace BeautyHub
             this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
             this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorDeleteItem.Text = "Delete";
             // 
             // bindingNavigatorMoveFirstItem
@@ -311,7 +312,7 @@ namespace BeautyHub
             this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveFirstItem.Text = "Move first";
             // 
             // bindingNavigatorMovePreviousItem
@@ -319,7 +320,7 @@ namespace BeautyHub
             this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMovePreviousItem.Text = "Move previous";
             // 
             // bindingNavigatorSeparator
@@ -347,7 +348,7 @@ namespace BeautyHub
             this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveNextItem.Text = "Move next";
             // 
             // bindingNavigatorMoveLastItem
@@ -355,7 +356,7 @@ namespace BeautyHub
             this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 22);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorMoveLastItem.Text = "Move last";
             // 
             // bindingNavigatorSeparator2
@@ -367,7 +368,7 @@ namespace BeautyHub
             // 
             this.staffNEWBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.staffNEWBindingNavigatorSaveItem.Name = "staffNEWBindingNavigatorSaveItem";
-            this.staffNEWBindingNavigatorSaveItem.Size = new System.Drawing.Size(29, 22);
+            this.staffNEWBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
             this.staffNEWBindingNavigatorSaveItem.Text = "Save Data";
             this.staffNEWBindingNavigatorSaveItem.Click += new System.EventHandler(this.staffNEWBindingNavigatorSaveItem_Click);
             // 
@@ -415,7 +416,7 @@ namespace BeautyHub
             // 
             // AddAppointmentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 28F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(796, 716);

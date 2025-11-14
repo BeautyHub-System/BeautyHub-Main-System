@@ -118,6 +118,43 @@ namespace BeautyHub
             }
         }
 
+        //private void btnCancelAppointment_Click(object sender, EventArgs e)
+        //{
+        //    if (dgvAppointments.CurrentRow != null)
+        //    {
+        //        var row = dgvAppointments.CurrentRow;
+
+        //        int appointmentId = Convert.ToInt32(row.Cells["appointmentIDDataGridViewTextBoxColumn"].Value);
+        //        string customerName = row.Cells["CustomerName"].Value?.ToString() ?? "Unknown";
+        //        DateTime date = Convert.ToDateTime(row.Cells["dateDataGridViewTextBoxColumn"].Value);
+        //        string time = row.Cells["timeDataGridViewTextBoxColumn"].Value?.ToString();
+
+        //        // Confirm cancellation
+        //        DialogResult confirm = MessageBox.Show(
+        //            $"Are you sure you want to cancel this appointment?\n\n" +
+        //            $"• Customer: {customerName}\n" +
+        //            $"• Date: {date:yyyy-MM-dd}\n" +
+        //            $"• Time: {time}",
+        //            "Confirm Cancellation",
+        //            MessageBoxButtons.YesNo,
+        //            MessageBoxIcon.Warning
+        //        );
+
+        //        if (confirm == DialogResult.Yes)
+        //        {
+        //            // Call your UPDATE method to change status
+        //            appointmentNEWTableAdapter.UpdateAppointmentStatus("Cancelled", appointmentId);
+
+        //            MessageBox.Show("Appointment cancelled.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //            appointmentNEWTableAdapter.FillWithCustomerName(spaDataSet.AppointmentNEW);
+        //        }
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Please select an appointment to cancel.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+
+        //}
         private void btnCancelAppointment_Click(object sender, EventArgs e)
         {
             if (dgvAppointments.CurrentRow != null)
@@ -127,14 +164,42 @@ namespace BeautyHub
                 int appointmentId = Convert.ToInt32(row.Cells["appointmentIDDataGridViewTextBoxColumn"].Value);
                 string customerName = row.Cells["CustomerName"].Value?.ToString() ?? "Unknown";
                 DateTime date = Convert.ToDateTime(row.Cells["dateDataGridViewTextBoxColumn"].Value);
-                string time = row.Cells["timeDataGridViewTextBoxColumn"].Value?.ToString();
+
+               
+                object timeCellValue = row.Cells["timeDataGridViewTextBoxColumn"].Value;
+                string timeString = timeCellValue?.ToString();
+
+                
+                DateTime appointmentDateTime;
+
+                if (!string.IsNullOrWhiteSpace(timeString) && TimeSpan.TryParse(timeString, out TimeSpan appointmentTime))
+                {
+                    appointmentDateTime = date.Date + appointmentTime;
+                }
+                else
+                {
+                    appointmentDateTime = date;
+                }
+
+                if (appointmentDateTime < DateTime.Now)
+                {
+                    MessageBox.Show(
+                        "You cannot cancel past appointments.\n\n" +
+                        "",
+                        "Cannot Cancel",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Warning
+                    );
+                    return;
+                }
+
 
                 // Confirm cancellation
                 DialogResult confirm = MessageBox.Show(
                     $"Are you sure you want to cancel this appointment?\n\n" +
                     $"• Customer: {customerName}\n" +
                     $"• Date: {date:yyyy-MM-dd}\n" +
-                    $"• Time: {time}",
+                    $"• Time: {timeString}",
                     "Confirm Cancellation",
                     MessageBoxButtons.YesNo,
                     MessageBoxIcon.Warning
@@ -153,7 +218,7 @@ namespace BeautyHub
             {
                 MessageBox.Show("Please select an appointment to cancel.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
         }
+
     }
 }
